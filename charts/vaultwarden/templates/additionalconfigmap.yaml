@@ -1,0 +1,18 @@
+{{- if .Values.additionalConfigs }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "vaultwarden.fullname" . }}-additional
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/component: vaultwarden
+    {{- include "vaultwarden.labels" . | nindent 4 }}
+{{- with .Values.configMapAnnotations }}
+  annotations:
+    {{- . | toYaml | nindent 4 }}
+{{- end }}
+data:
+  {{- with .Values.additionalConfigs }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
+{{- end }}

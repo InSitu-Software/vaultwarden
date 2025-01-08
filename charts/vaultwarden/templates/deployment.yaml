@@ -48,5 +48,10 @@ spec:
           persistentVolumeClaim:
             claimName: {{ $newName }}
         {{- end }}
+        {{- if .Values.additionalConfigs }}
+        - name: additionalConfigs
+          configMap:
+            name: {{ include "vaultwarden.fullname" . }}-additional
+        {{- end }}
       {{- end }}
 {{- end }}

@@ -51,7 +51,7 @@ fullnameOverride: ""
 ## @param resourceType Can be either Deployment or StatefulSet
 ## Overwrite automatic resource type detection by specifying the resource type
 ##
-resourceType: ""
+resourceType: "Deployment"
 
 ## @param commonAnnotations Annotations for the deployment or statefulset
 ##
@@ -772,3 +772,7 @@ ingress:
   ##   - Add support for using cert-manager.
   ##   - Support for multiple TLS hostnames.
   ##
+
+## Additional Keys to be put in a configmap
+additionalConfigs:
+#  TEST: 'value'
