@@ -49,7 +49,7 @@ spec:
             claimName: {{ $newName }}
         {{- end }}
         {{- if .Values.additionalConfigs }}
-        - name: additionalConfigs
+        - name: additional-configs
           configMap:
             name: {{ include "vaultwarden.fullname" . }}-additional
         {{- end }}
